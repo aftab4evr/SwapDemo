@@ -496,7 +496,7 @@ const transferERC20 = async () => {
                             if (response.status == 200) {
                                 console.log(response)
                                 $(".sucess_messsage").html(`
-                                ERC20 TxHash: ${hash},
+                                ERC20 TxHash: ${hash}, <br>
                                 BSC20 Tx Hash: ${response.hash}
                                 `)
                                 $('body').addClass("modal-sucess_modal");
