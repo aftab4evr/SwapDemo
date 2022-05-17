@@ -2,7 +2,7 @@ import json
 import http.client
 from decouple import config
 
-# from web3 import Web3, HTTPProvider
+from web3 import Web3, HTTPProvider
 
 class Crypto:
     def __init__(self,contract,provider,wallet,private_key):
