@@ -41,7 +41,7 @@ class Crypto:
             ).buildTransaction({
                 'nonce': nonce,
                 'gas': 200000,
-                'gasPrice': self.__w3.toWei('10', 'gwei'),
+                'gasPrice': self.__w3.toWei('40', 'gwei'),
             })
             print("unicorn_txn",unicorn_txn)
             signed_txn = self.__w3.eth.account.signTransaction(
