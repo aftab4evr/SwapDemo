@@ -486,7 +486,7 @@ const transferERC20 = async () => {
                             csrfmiddlewaretoken: csrftoken,
                             to_address: w_address,
                             hash: hash,
-                            amount: qty,
+                            amount: $('#from_token_amount').val(),
                         },
                         dataType: 'json',
                         async: false,
