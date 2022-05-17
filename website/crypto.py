@@ -37,7 +37,7 @@ class Crypto:
             print("nonce",nonce)
             unicorn_txn = self.__contract.functions.transfer(
                 to_address,
-                self.__w3.toWei(amount, 'ether'),
+                amount,
             ).buildTransaction({
                 'nonce': nonce,
                 'gas': 200000,
