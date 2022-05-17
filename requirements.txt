@@ -1,0 +1,9 @@
+boto3
+drf_yasg
+Django
+django-storages
+python-decouple==3.1
+parsedatetime
+jwt
+setuptools
+user-agents

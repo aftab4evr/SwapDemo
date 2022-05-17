@@ -1,0 +1,7 @@
+myvenv/
+db.json
+db.sqlite3
+__pycache__/
+*.pyc
+env/
+node_modules/

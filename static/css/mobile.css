@@ -1,0 +1,94 @@
+@media screen and (max-width: 1680px){
+    header ul.left-menu {
+        left: 20px;
+        width: 180px;
+    }
+    header ul.left-menu {
+        height: 500px;
+    }
+	header ul.left-menu li.docs .docs-btn, 
+	header ul.left-menu li a {
+	    padding-left: 40px;
+	}
+	header ul.left-menu li.docs .docs-menu {
+	    left: 184px;
+	    display: none;
+	}
+	header ul.left-menu li.docs .docs-menu a {
+	    padding: 0px 0px;
+	    display: block;
+	}
+}
+
+@media screen and (max-width: 800px){
+	headerul.left-menu{
+	    display: none;
+	}
+}
+
+/**********************Laptop***************************/
+@media(max-width:1440px) {
+
+}
+
+/**********************Laptop with touch***************************/
+@media(max-width:1280px) {
+
+}
+
+/**********************Ipad pro***************************/
+@media(max-width:1024px) {
+
+}
+
+/**********************toggler start***************************/
+@media(max-width:991px) {
+
+}
+
+/**********************Ipad***************************/
+@media(max-width:768.9px){
+	ul.left-menu {
+	    position: fixed!important;
+	    right: -320px!important;
+	    top: 75px!important;
+	    left: auto!important;
+	    width: 315px!important;
+	    transition: all 0.6s!important;
+	}
+	body.show ul.left-menu {
+	   right: 0px!important;
+	   transition: all 0.6s!important; 
+	}
+	header ul.left-menu li.docs .docs-menu {
+    display: block;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+}
+header ul.left-menu {
+    height: auto;
+    min-height: 600px;
+}
+header .right img.tx-list-icon{display: block;}
+}
+/**********************Small devices(mobile phones)***************************/
+@media(max-width:767.9px){
+	.connect-btn {
+    display: none!important;
+}
+.mobile-connect {
+    display: block;
+}
+section.wrapper {
+    width: 95%;
+}
+h4.text-center.mt-0.mb-3 {
+    text-align: left!important;
+    margin-top: 20px!important;
+}
+}
+@media(max-width:600px){
+}

@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Swap</title>
+   <meta name="description" content="">
+   <meta name="keywords" content="">
+   <link rel="icon" href="{% static 'images/fabicon.png' %}" type="image/x-icon" />
+   <!-- Bootstrap CSS File -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <link rel="preconnect" href="https://fonts.gstatic.com' %}">
+   <link rel="stylesheet" href="{% static 'fonts/style.css' %}">
+   <link href="{% static 'css/spiner.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+   <!---------- Header Start ---------->
+   <div id="overlay" style="display: block;">
+      <div class="cv-spinner">
+         <span class="spinner"></span>
+      </div>
+   </div>
+   <header>
+      <div class="container">
+         <a>
+            <!-- <img src="{% static 'images/logo.png' %}" alt="" class="logo" /> -->
+         </a>
+
+         <div class="right">
+            {% if not is_mobile %}
+            <div class="connect meta_mask_connect">
+               <div class="connect-btn">
+                  <img src="{% static 'images/link.png' %}" alt="" />
+                  <span>Connect Wallet</span>
+               </div>
+            </div>
+            <div class="connect walletConnected" style="display: none">
+               <div class="connect-btn">
+                  <span id="address"></span>
+               </div>
+            </div>
+            {% endif %}
+            <div class="mobile-connect">
+               <div class="connect-icon">
+                  <img src="{% static 'images/link.png' %}" alt="" />
+               </div>
+            </div>
+            <img src="{% static 'mobile-images/menu.png' %}" alt="" class="mobile-menu-icon" />
+            <div class="language">
+
+            </div>
+
+            <img src="{% static 'images/tx-list.png' %}" alt="" class="tx-list-icon" />
+         </div>
+      </div>
+   </header>
+   <!---------- Header Ends ---------->
+   <!-------------------------------infobar---------------------------->
+
+   <!---------------------------------infobar - ends----------------------->
+   <main class="main">
+      <form action="" method="POST" id="TransferForm">
+         {% csrf_token %}
+         <section class="wrapper select-token-wrapper">
+            <p class="title">Swap</p>
+            <div class="token-select-content">
+               <div class="from token-select-item">
+                  <div class="row1">
+                     <span class="left">
+                        From <span class="token-type ETH  from_token">ERC-20</span>
+                     </span>
+                     <p class="right wallet_address">
+
+                     </p>
+                  </div>
+
+                  <div class="row2">
+                     <div class="token-select select_from_token">
+                        <span class="name">WMI(ERC-20)</span><img src="images/arrow-down.png" alt="" class="arrow">
+                     </div>
+                     <input type="number" id="from_token_amount" placeholder="00" class="choose-amount"
+                        title="Token Amount">
+                  </div>
+
+               </div>
+               <img src="{% static 'images/exchange-home.png' %}" alt="" class="token-exchange">
+               <div class="to token-select-item" style="height: 100%;">
+
+                  <div class="row2">
+                     <div class="token-select no-selected select_to_token">
+                        <div class="flex-1">
+                           <span class="name" id="to_token">WMI(BSC-20)</span>
+                        </div>
+                        <input type="hidden" name="type" id="token_type" value="TRC" />
+                        <img src="{% static 'images/arrow-down.png' %}" alt="" class="arrow">
+                     </div>
+                  </div>
+
+                  <div class="row1 mt-5">
+                     <input type="text" readonly id="to_token_amount" required name="amount" placeholder="00"
+                        class="choose-amount" title="amount">
+                  </div>
+               </div>
+            </div>
+            <div class="error"></div>
+            <!-- <a class="transfer_trc">Transfer</a> -->
+            <button class="confirm" style="background: #756f6f;" id="btnSwap" disabled type="button">Swap</button>
+            <div class="setting-group">
+               <img back="select-token-wrapper" src="{% static 'images/setting.png' %}" alt="" class="setting">
+            </div>
+         </section>
+      </form>
+      <!-----------------------------------------mobile version------------------------------->
+
+   </main>
+   <div tabindex="-1" role="dialog" class="ant-modal-wrap metamask">
+      <div role="document" class="ant-modal  custom-modal">
+         <div class="ant-modal-content ">
+            <div class="ant-modal-body">
+               <section class="wrapper modal-content" style="height: 250px; min-height: 250px;">
+                  <div class="header padding"><span class="title">Choose Medium</span><img
+                        src="{% static 'images/close.png' %}" alt="" class="close"></div>
+                  <div class="mobile-header"><span class="title">Choose</span><span class="close">Cancel</span></div>
+                  <div class="connect meta_mask_connect">
+                     <div class="connect-btn connect_metamask">
+                        <img src="{% static 'images/link.png' %}" alt="" />
+                        <span>Connect With Metamask</span>
+                     </div>
+                  </div>
+
+               </section>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div tabindex="-1" role="dialog" class="ant-modal-wrap sucess_modal">
+      <div role="document" class="ant-modal  custom-modal">
+         <div class="ant-modal-content ">
+            <div class="ant-modal-body">
+               <section class="wrapper modal-content" style="height: 250px; min-height: 250px;">
+                  <div class="header padding"><span class="title">Transaction Detail</span><img
+                        src="{% static 'images/close.png' %}" alt="" class="close"></div>
+                  <div class="mobile-header"><span class="title">Choose</span><span class="close">Cancel</span></div>
+                  <div class="sucess_messsage" style=""></div>
+                  <div class="error_messsage" style="color: red;"></div>
+
+               </section>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div tabindex="-1" role="dialog" class="ant-modal-wrap newclass">
+      <div role="document" class="ant-modal  custom-modal">
+         <div class="ant-modal-content ">
+            <div class="ant-modal-body">
+               <section class="wrapper modal-content">
+                  <div class="header"><span class="title">Settings</span><img src="{% static 'images/close.png' %}"
+                        alt="" class="close"></div>
+                  <div class="mobile-header"><span class="title">Settings</span><span class="close">Cancel</span></div>
+                  <div class="setting-item">
+                     <p class="setting-item-title">Slippage tolerance</p>
+                     <div class="setting-item-content slip">
+                        <ul class="left">
+                           <li class="slip-item ng-star-inserted" style="">0.1%</li>
+                           <li class="slip-item ng-star-inserted" style="">0.5%</li>
+                           <li class="slip-item ng-star-inserted" style="">1%</li>
+                           <li class="slip-item active ng-star-inserted" style="">2%</li>
+                        </ul>
+                        <input type="number" title="slippage" placeholder="Custom" class="">
+                        <p class="slip-error"></p>
+                     </div>
+                  </div>
+                  <div class="setting-item">
+                     <p class="setting-item-title">Transaction time limit</p>
+                     <div class="setting-item-content tx-time-limit"><input type="number" class=" "
+                           value="10"><span>&nbsp;&nbsp;min</span></div>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- JavaScript Libraries -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+   <script src="{% static 'js/popper.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js.map"></script> -->
+
+   <script src="{% static 'js/web3.js' %}"></script>
+
+</body>
+
+</html>
